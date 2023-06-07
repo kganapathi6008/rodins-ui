@@ -1,0 +1,145 @@
+* {
+  font-family: "Raleway", sans-serif;
+}
+
+$primary-color: #288eca;
+$secondary-color: #cfcfcf;
+$accent-color: #707379;
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 8px 8px 0 rgba($color: #000000, $alpha: 0.1);
+
+  .brand {
+    color: $primary-color;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.main-content {
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .box {
+    width: 40%;
+    height: 70%;
+    margin-top: 5%;
+    background-color: #fff;
+    box-shadow: 0 0 20px 0 rgba($color: #000000, $alpha: 0.1);
+    border-radius: 10px;
+    position: relative;
+  }
+}
+
+.dropzone {
+  border: 2px dashed $secondary-color;
+  width: calc(100% - 35px);
+  height: calc(100% - 30px);
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+
+  &.is-dragging{
+    border-color: $primary-color;
+  }
+
+  .text {
+    font-weight: 600;
+    color: $accent-color;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+}
+
+.btn {
+  padding: 8px 16px;
+  background-color: $primary-color;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.options-section {
+  padding: 20px;
+  mat-select {
+    width: 100%;
+    height: 20px;
+  }
+
+  .center {
+    text-align: center;
+    margin: auto;
+  }
+
+  .select {
+    font-size: 13px;
+    height: 40px;
+    width: 60%;
+    margin: auto;
+    margin-top: 10%;
+  }
+}
+
+.back-btn {
+  color: $accent-color;
+  font-size: 23px;
+  margin-right: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.download-section {
+  padding: 20px;
+  .center {
+    margin: auto;
+    margin-top: 10%;
+    width: 80%;
+    text-align: center;
+  }
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  p, strong{
+    font-size: 15px;
+  }
+}
+
+:host ::ng-deep {
+  .all-items {
+    text-align: left;
+  }
+
+  .mat-spinner{
+    margin: auto;
+  }
+
+  .mat-spinner,
+  circle {
+    stroke: $primary-color;
+  }
+}
+
+.link {
+  color: $primary-color;
+  text-decoration: underline;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}

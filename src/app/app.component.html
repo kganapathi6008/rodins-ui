@@ -1,0 +1,57 @@
+<div class="header">
+  <span class="brand">Rodins Source To Destination Mapping Generator</span>
+</div>
+
+<div class="main-content">
+  <div class="box">
+    <!-- File Selection -->
+    <ng-container *ngIf="!isLoading && pageIndex == 0">
+      <div class="dropzone" [ngClass]="{'is-dragging': isDragging}" (dragleave)="onDragLeave($event)"
+        (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+        <span class="text">Drag File Here</span>
+        <span class="text">or</span>
+        <div class="choose-file">
+          <input #FileSelectInputDialog type="file" style="display: none" (change)="onFileChange($event)" />
+          <button class="btn" (click)="chooseFile()">Choose file</button>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Option Selection -->
+    <!-- <ng-container *ngIf="!isLoading && pageIndex == 100">
+      <div class="options-section">
+        <h3><i class="ti ti-circle-arrow-left back-btn" (click)="pageIndex = 0"></i> Select the mapping option</h3>
+        <div class="center">
+          <div class="select">
+            <search-multiselect-dropdown [config]="config" [(ngModel)]="selectedOption"
+              [options]="options"></search-multiselect-dropdown>
+          </div>
+          <br>
+          <button class="btn" (click)="sendSelectedOptions()">Next</button>
+        </div>
+      </div>
+    </ng-container> -->
+
+    <!-- Download Section -->
+    <ng-container *ngIf="!isLoading && pageIndex == 1">
+      <div class="download-section">
+        <h3><i class="ti ti-circle-arrow-left back-btn" (click)="pageIndex = 0"></i></h3>
+        <div class="center">
+          <h3>Source to destination file has been mapped and download link is generated.</h3>
+          <br>
+          <button class="btn" (click)="downloadFile()">Click here download file</button>
+          <br>
+          <br>
+          <div (click)="resetAll()" class="link">Start Again</div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="isLoading">
+      <div class="loader">
+        <p><strong>Processing!</strong> <br> This might take a few minutes.</p>
+        <mat-spinner diameter="30" color="#ff0000"></mat-spinner>
+      </div>
+    </ng-container>
+  </div>
+</div>
